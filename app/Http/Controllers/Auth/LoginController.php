@@ -31,7 +31,7 @@ class LoginController extends Controller
     protected function redirect(){
 
         if (Auth::user()->usertype=='admini') {
-            return 'dashboard';
+            return '/dashboard';
         } 
         else {
             return 'home';

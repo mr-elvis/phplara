@@ -16,15 +16,26 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()-> usertype == 'admini')
+        //dd('hit');
+
+        if (Auth::check() && Auth::user()->usertype == 'admini')
+         {
+            return $next($request);
+        } 
+        else {
+            return redirect('/');
+        }
+        
+
+        /*
+        if(Auth::user() -> usertype == 'admini')
         {
             return $next($request);
 
         }
         else{
-
             return redirect('/');
         }
-        
+        */
     }
 }
